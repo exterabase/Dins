@@ -51,10 +51,35 @@ body.static{padding:16px 16px 56px;background:radial-gradient(1200px 700px at 15
 }
 
 /* animated bear (Lottie) sits inside the perspective layer */
-.mo{pointer-events:none;overflow:visible}
 .mo canvas{display:block;width:100%!important;height:100%!important}
 /* quick, reliable page exit */
 .gl-canvas,.layer,.menu{transition:opacity .2s ease}
 .leaving .gl-canvas{opacity:0}
 .leaving .layer,.leaving .menu{opacity:0;transition-duration:.14s}
 .static .card>.mo{position:absolute}
+
+/* floating stickers */
+.mo{pointer-events:none;overflow:visible;animation:bob var(--bd,6s) ease-in-out infinite alternate;animation-delay:var(--dl,0s);will-change:transform}
+@keyframes bob{from{transform:translate3d(0,-3px,0) rotate(-1.5deg)}to{transform:translate3d(0,4px,0) rotate(1.5deg)}}
+
+/* living background: drifting glow + slow waves (transform-only, GPU) */
+#bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#050507}
+#bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 105%,rgba(130,110,255,.22),transparent 70%);animation:glow 9s ease-in-out infinite alternate}
+.bl{position:absolute;display:block;border-radius:50%;width:70vmax;height:70vmax;will-change:transform}
+.b1{left:-22vmax;top:-26vmax;background:radial-gradient(circle,rgba(124,106,255,.34),transparent 62%);animation:d1 26s ease-in-out infinite alternate}
+.b2{right:-28vmax;top:18vh;background:radial-gradient(circle,rgba(70,140,255,.2),transparent 62%);animation:d2 32s ease-in-out infinite alternate}
+.b3{left:8vw;bottom:-38vmax;background:radial-gradient(circle,rgba(190,110,255,.24),transparent 62%);animation:d3 29s ease-in-out infinite alternate}
+.wv{position:absolute;left:0;bottom:0;width:200%;height:34vh;min-height:220px;will-change:transform}
+.w1{fill:rgba(124,106,255,.09);animation:wv 26s linear infinite}
+.w2{fill:rgba(96,150,255,.07);bottom:-3vh;height:30vh;animation:wv 19s linear infinite reverse}
+@keyframes wv{to{transform:translate3d(-50%,0,0)}}
+@keyframes d1{to{transform:translate3d(20vmax,14vmax,0) scale(1.18)}}
+@keyframes d2{to{transform:translate3d(-22vmax,-12vmax,0) scale(.9)}}
+@keyframes d3{to{transform:translate3d(16vmax,-10vmax,0) scale(1.2)}}
+@keyframes glow{from{opacity:.35}to{opacity:1}}
+@media(max-width:719px){.b3{display:none}.wv{height:26vh}}
+@media(prefers-reduced-motion:reduce){#bg *,#bg::after,.mo{animation:none!important}}
+body.static{background:var(--bg)}
+.cards{position:relative;z-index:1}
+@keyframes fin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.static .cards{animation:fin .35s ease both}
