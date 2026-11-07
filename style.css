@@ -1,0 +1,60 @@
+:root{--bg:#050507;--tx:#f2f2f7;--mu:rgba(242,242,247,.62);--ac:#b7abff}
+*{box-sizing:border-box}
+html{background:var(--bg);color:var(--tx);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+body.gl.fix{height:100%;overflow:hidden}
+.gl-canvas{position:fixed;inset:0;width:100%;height:100%;display:block;z-index:1;touch-action:pan-y}
+#spacer{width:1px}
+noscript{display:block;padding:24px;color:var(--mu)}
+
+/* transparent DOM text layer on top of the canvas */
+.layer{position:fixed;left:0;top:0;transform-origin:0 0;z-index:3;pointer-events:auto}
+.leaving .layer{pointer-events:none}
+.layer>*,.card>*{position:absolute;margin:0}
+.t{white-space:nowrap;-webkit-user-select:text;user-select:text;cursor:text}
+.gl .t,.gl .btn,.gl .lk,.gl .bg{color:transparent}
+.t::selection{background:rgba(183,171,255,.5);color:#fff}
+.btn,.lk,.bg{display:flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;border:0;background:none;padding:0;border-radius:999px;font-family:inherit}
+.lk{border-radius:20px}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+
+/* mobile glass menu (WebGL mode) */
+.menu{display:none;position:fixed;left:16px;right:16px;z-index:6;padding:8px;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(160deg,rgba(70,66,96,.5),rgba(18,18,24,.88));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 20px 50px rgba(0,0,0,.6)}
+.menu.open{display:block}
+.menu a,.snav.open .links a{display:flex;align-items:center;min-height:48px;padding:0 16px;border-radius:14px;color:var(--tx);text-decoration:none;font-weight:500}
+.menu a[aria-current]{background:rgba(255,255,255,.12)}
+@media(min-width:720px){.menu,.menu.open{display:none}}
+
+/* static glass version: reduced motion, no WebGL, CDN failure */
+body.static{padding:16px 16px 56px;background:radial-gradient(1200px 700px at 15% -10%,rgba(120,105,220,.16),transparent 60%),var(--bg);min-height:100vh}
+.glass,.snav,.card{border:1px solid rgba(255,255,255,.16);background:linear-gradient(160deg,rgba(70,66,96,.45),rgba(16,16,22,.78));-webkit-backdrop-filter:blur(20px) saturate(1.2);backdrop-filter:blur(20px) saturate(1.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 20px 50px rgba(0,0,0,.5)}
+.snav{position:sticky;top:12px;z-index:10;max-width:1100px;margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:20px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--tx);text-decoration:none;font-weight:700;font-size:22px;min-height:44px}
+.mk{display:block;width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#f4f3ff,#8c7ee6);position:relative}
+.mk::after{content:"";position:absolute;left:22%;right:22%;top:48%;height:2px;background:rgba(8,8,14,.55);transform:rotate(-45deg)}
+.links{display:flex;gap:4px}
+.links a{display:flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;color:var(--mu);text-decoration:none;font-weight:500}
+.links a[aria-current]{background:rgba(255,255,255,.12);color:var(--tx);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.snav .bg{display:none;width:44px;height:44px;flex-direction:column;gap:5px}
+.snav .bg i{display:block;width:20px;height:2px;background:var(--tx);border-radius:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,340px);justify-content:center;gap:14px;max-width:1100px;margin:0 auto}
+.card{position:relative;width:340px;border-radius:20px;overflow:hidden}
+.static .t{color:var(--c);cursor:text}
+.static .btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.3);color:var(--tx)}
+.static .btn.prim{background:#f4f3ff;border-color:#f4f3ff;color:#0b0b10}
+.static .lk{color:transparent}
+@media(max-width:719px){
+  .snav .bg{display:flex;align-items:center;justify-content:center}
+  .snav .links{display:none}
+  .snav.open .links{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:calc(100% + 8px);padding:8px;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:rgba(18,18,24,.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px)}
+  .cards{grid-template-columns:340px}
+}
+
+/* animated bear (Lottie) sits inside the perspective layer */
+.mo{pointer-events:none;overflow:visible}
+.mo canvas{display:block;width:100%!important;height:100%!important}
+/* quick, reliable page exit */
+.gl-canvas,.layer,.menu{transition:opacity .2s ease}
+.leaving .gl-canvas{opacity:0}
+.leaving .layer,.leaving .menu{opacity:0;transition-duration:.14s}
+.static .card>.mo{position:absolute}
