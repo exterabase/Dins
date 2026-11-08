@@ -127,7 +127,7 @@ const PG = {
   },
   gifts() {
     const c = D.gifts;
-    return card('t.me/DinSells', `${st('bear', 'bear')}<h1 style="font-size:clamp(52px,15vw,110px)">${c.title}</h1><p class="sub">${c.text}</p><div class="acts">${btn(c.btn, SELL, 1)}${btn(c.btn2, PROOF)}</div>`, 'span')
+    return card('t.me/DinSells', `${st('bear', 'bear')}<h1 style="font-size:clamp(34px,9.5vw,96px)">${c.title}</h1><p class="sub">${c.text}</p><div class="acts">${btn(c.btn, SELL, 1)}${btn(c.btn2, PROOF)}</div>`, 'span')
       + c.cards.map((d, i) => card('шаг ' + n2(i), `${st('g' + (i + 1))}<span class="idx">№ ${n2(i)}</span><h3>${d[0]}</h3><p>${d[1]}</p>`)).join('')
       + card('t.me/DinPodarok', `<h3>${c.proof[0]}</h3><p>${c.proof[1]}</p><div class="srow">${[7, 8, 9, 10].map(n => st('g' + n)).join('')}</div><div class="acts">${btn(c.btn2, PROOF, 1)}</div>`, 'span', '', 'доказательства');
   }
