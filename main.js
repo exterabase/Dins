@@ -7,49 +7,51 @@ const routeOf = p => { const k = p.slice(ROOT.length).replace(/\.html$/, '').rep
 const TG = 'https://t.me/Din_Tag';
 
 /* ВСЕ ТЕКСТЫ И ССЫЛКИ — ЗДЕСЬ */
+const SELL = 'https://t.me/DinSells', BIO = 'https://t.me/DinsBio', PROOF = 'https://t.me/DinPodarok';
 const D = {
   home: {
-    sub: 'Аккаунты, аренда, подарки, сайты и плагины. В канале постоянные розыгрыши.',
-    btns: [['Магазин', 'shop'], ['Био', 'bio'], ['Подарки', 'gifts']], channel: 'Канал @Din_Tag',
+    sub: 'Аккаунты, аренда, подарки, сайты и плагины. Покупки и постоянные розыгрыши — в канале @DinSells.',
+    btns: [['Магазин', 'shop'], ['Био', 'bio'], ['Раздачи', 'gifts']], channel: ['Канал @DinSells', SELL], profile: ['Профиль @Din_Tag', TG],
     tiles: [
-      ['Магазин', '@DinSells', 'Аккаунты, аренда, накрутка, сайты и плагины.', H.shop],
-      ['Био', '@DinsBio', 'Коротко обо мне.', H.bio],
-      ['Подарки', 'Постоянные розыгрыши', 'Раздаю мишек и NFT-подарки в @DinPodarok.', H.gifts],
-      ['Канал', '@Din_Tag', 'Главный канал Din.', TG]
+      ['Магазин', '@DinSells', 'Аккаунты, аренда, накрутка, сайты и плагины. Покупки и розыгрыши в канале.', H.shop],
+      ['Био', '@DinsBio', 'Коротко обо мне и о том, чем занимаюсь.', H.bio],
+      ['Раздачи', '@DinPodarok', 'Скрины прошлых раздач: видно, что всё по-настоящему.', H.gifts],
+      ['Профиль', '@Din_Tag', 'Написать мне напрямую.', TG]
     ]
   },
   shop: {
-    link: 'https://t.me/DinSells', tag: 'Часть выбора', btn: 'Перейти в канал',
+    tag: 'Часть выбора', btn: 'Купить в @DinSells', btn2: 'Написать @Din_Tag',
     cards: [
-      ['Аккаунт США +1', 'Аккаунт Telegram с номером США.', '+1 ••• ••• ••••'],
-      ['Аккаунт Япония', 'Аккаунт Telegram с номером Японии.', '+81 ••• ••• ••••'],
-      ['Аренда NFT', 'Подарки и NFT в аренду на нужный срок.', 'NFT · подарки · аренда', 'g5'],
-      ['Аренда юзов', 'Красивые юзернеймы в аренду.', '@din · @din_shop'],
-      ['Накрутка подписчиков', 'Для всех популярных соцсетей: Telegram, Instagram, TikTok, YouTube и других.', 'Telegram · Instagram · TikTok · YouTube'],
-      ['Накрутка реакций', 'Реакции и лайки в популярных соцсетях: Telegram, Instagram, TikTok и других.', 'лайки · реакции · просмотры'],
-      ['Разработка сайтов', 'Лендинги, визитки и магазины под ключ: дизайн, анимации, адаптив.', '</> дизайн · анимации · адаптив'],
-      ['Плагины для AyuGram и ExteraGram', 'Пишу плагины и расширения под клиенты AyuGram и ExteraGram.', 'AyuGram · ExteraGram']
+      ['Аккаунт США +1', 'Аккаунт Telegram с номером США.', 'num', 'us', '+1 ••• ••• ••••', 'номер США'],
+      ['Аккаунт Япония', 'Аккаунт Telegram с номером Японии.', 'num', 'jp', '+81 ••• ••• ••••', 'номер Японии'],
+      ['Аренда NFT', 'Подарки и NFT в аренду на нужный срок.', 'nft'],
+      ['Аренда юзов', 'Красивые юзернеймы в аренду.', 'user'],
+      ['Накрутка подписчиков', 'Для всех популярных соцсетей: Telegram, Instagram, TikTok, YouTube и других.', 'fol'],
+      ['Накрутка реакций', 'Реакции и лайки в популярных соцсетях: Telegram, Instagram, TikTok и других.', 'rea'],
+      ['Разработка сайтов', 'Лендинги, визитки и магазины под ключ: дизайн, анимации, адаптив.', 'web'],
+      ['Плагины для AyuGram и ExteraGram', 'Пишу плагины и расширения под клиенты AyuGram и ExteraGram.', 'plg']
     ]
   },
   bio: {
-    link: 'https://t.me/DinsBio', linkText: 't.me/DinsBio', handle: '@DinsBio', btn: 'Открыть канал',
+    linkText: 't.me/DinsBio', handle: '@DinsBio', btn: 'Открыть @DinsBio',
     about: 'Продаю аккаунты, сдаю в аренду NFT и юзы, раздаю подарки.',
     services: ['Аккаунты', 'Аренда NFT', 'Аренда юзов', 'Подписчики', 'Реакции', 'Сайты', 'Плагины', 'Раздачи'],
     title: 'Привет, я Din',
     text: ['Продаю аккаунты Telegram с номерами разных стран, сдаю в аренду NFT, подарки и красивые юзернеймы.', 'Делаю сайты и плагины для AyuGram и ExteraGram, помогаю каналам расти и постоянно устраиваю розыгрыши.'],
-    time: 'Магазин @DinSells · Раздачи @DinPodarok'
+    time: 'Покупки и розыгрыши — @DinSells · Профиль — @Din_Tag'
   },
   gifts: {
-    link: 'https://t.me/DinPodarok', title: 'Раздаю мишек', btn: 'Перейти в канал',
-    text: 'Постоянные розыгрыши для подписчиков. Как это работает — ниже, а все новые раздачи выходят в канале.',
+    title: 'Раздачи', btn: 'Розыгрыши в @DinSells', btn2: 'Скрины в @DinPodarok',
+    text: 'Постоянные розыгрыши для подписчиков. Как это работает — ниже. В @DinPodarok лежат скрины прошлых раздач, чтобы было видно, что они настоящие.',
     cards: [
-      ['Подпишись на канал', 'Раздачи выходят в @DinPodarok. Включи уведомления, чтобы не пропустить.'],
+      ['Подпишись на канал', 'Розыгрыши выходят в @DinSells. Включи уведомления, чтобы не пропустить.'],
       ['Нажми «Участвую»', 'Один клик под постом. Никаких заданий и репостов.'],
       ['Честный розыгрыш', 'Победителей выбирает случайный выбор, без договорных мест.'],
       ['Мишки и NFT-подарки', 'В призах плюшевые мишки, редкие подарки и NFT.'],
       ['Звёзды и бонусы', 'Иногда добавляю Telegram Stars для участников.'],
-      ['Итоги в канале', 'Победителей объявляю постом и пишу им лично.']
-    ]
+      ['Итоги в канале', 'Победителей объявляю постом в @DinSells и пишу им лично.']
+    ],
+    proof: ['Скрины раздач', 'Сколько подарков уже роздано — смотри в @DinPodarok: там только скриншоты выдач.']
   }
 };
 
@@ -97,34 +99,45 @@ const DOTS = '<span class="dots"><i></i><i></i><i></i></span>';
 const card = (u, b, c = '', h, x = '') => { const t = h ? 'a' : 'article'; return `<${t} class="cd ${c}"${h ? ' ' + A(h) : ''}><div class="ch">${DOTS}<b></b><span>${u}</span>${x ? `<em>${x}</em>` : ''}</div><div class="cb">${b}</div></${t}>`; };
 const n2 = i => String(i + 1).padStart(2, '0');
 
+const FL = { us: '<i class="fl us"></i>', jp: '<i class="fl jp"></i>' };
+const row = (t, r, av) => `<div class="rw">${av ? '<i class="av"></i>' : '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#b9b9c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>'}<b>${t}</b><small>${r}</small></div>`;
+const ART = {
+  num: d => `<div class="art">${FL[d[3]]}<div class="nm"><b>${d[4]}</b><small>${d[5]}</small></div><span class="sig"><i></i><i></i><i></i><i></i></span></div>`,
+  nft: () => `<div class="art mid">${st('g5')}${st('g7')}</div>`,
+  user: () => `<div class="art col">${row('@din', 'в аренду', 1)}${row('@din_shop', 'в аренду', 1)}</div>`,
+  fol: () => `<div class="art"><div class="nm"><b class="xl">+12 480</b><small>подписчиков</small></div><div class="bars">${[18, 28, 38, 48, 58, 70, 82, 96].map(h => `<i style="height:${h}%"></i>`).join('')}</div></div>`,
+  rea: () => `<div class="art col"><div class="pl"><span>♥ 248</span><span>★ 1,2K</span></div><svg viewBox="0 0 200 44" preserveAspectRatio="none"><polyline points="0,40 25,32 50,35 75,24 100,26 125,16 150,12 175,6 200,3" fill="none" stroke="#f2f2f7" stroke-width="2.4" stroke-linejoin="round"/></svg></div>`,
+  web: () => `<div class="art web"><div class="wb">${DOTS}</div><div class="wl"><span style="width:44%"></span><span style="width:30%;opacity:.5"></span><span style="width:52%;opacity:.3"></span></div><code class="cg">&lt;/&gt;</code></div>`,
+  plg: () => `<div class="art col">${row('AyuGram', 'плагин')}${row('ExteraGram', 'плагин')}</div>`
+};
 const PG = {
   home() {
     const c = D.home;
-    return card('t.me/Din_Tag', `${st('bear', 'bear')}<h1>Din.</h1><p class="sub">${c.sub}</p><div class="srow">${st('g9')}${st('g10')}${st('g5')}</div><div class="acts">${c.btns.map(b => btn(b[0], b[1])).join('')}${btn(c.channel, TG, 1)}</div>`, 'span')
-      + c.tiles.map((t, i) => card(t[1], `<span class="idx">№ ${n2(i)}</span><h3>${t[0]}</h3><p>${t[2]}</p><span class="go">Открыть →</span>`, 'tile', t[3])).join('');
+    return card('t.me/DinSells', `${st('bear', 'bear')}<h1>Din.</h1><p class="sub">${c.sub}</p><div class="srow">${st('g9')}${st('g10')}${st('g5')}</div><div class="acts">${btn(c.channel[0], c.channel[1], 1)}${c.btns.map(b => btn(b[0], b[1])).join('')}${btn(c.profile[0], c.profile[1])}</div>`, 'span')
+      + c.tiles.map((t, i) => card(t[1], `<span class="idx">№ ${n2(i)}</span><h3>${t[0]}</h3><p>${t[2]}</p><span class="go">${ext(t[3]) ? 'Открыть в Telegram ↗' : 'Открыть →'}</span>`, 'tile', t[3])).join('');
   },
   shop() {
     const c = D.shop;
-    return c.cards.map((d, i) => card('t.me/DinSells', `${d[3] ? st(d[3]) : ''}<span class="idx">№ ${n2(i)}</span><h3>${d[0]}</h3><p>${d[1]}</p><code class="spec">${d[2]}</code><div class="acts">${btn(c.btn, c.link, 1)}</div>`, '', '', c.tag)).join('');
+    return c.cards.map((d, i) => card('t.me/DinSells', `<span class="idx">№ ${n2(i)}</span>${ART[d[2]](d)}<h3>${d[0]}</h3><p>${d[1]}</p><div class="acts">${btn(c.btn, SELL, 1)}${btn(c.btn2, TG)}</div>`, '', '', c.tag)).join('');
   },
   bio() {
     const c = D.bio;
     return card(c.linkText, `<div class="me"><i class="mk lg">D</i><div><h2>${c.title}</h2><code class="spec" style="margin:8px 0 0;display:inline-block">${c.handle}</code></div></div><p>${c.about}</p><div class="chips">${c.services.map(s => `<span>${s}</span>`).join('')}</div>`, 'span')
-      + card('чем занимаюсь', c.text.map(t => `<p>${t}</p>`).join('') + `<span class="bar-code"></span><p class="lab" style="margin-top:12px">${c.time}</p><div class="acts">${btn(c.btn, c.link, 1)}</div>`, 'span');
+      + card('чем занимаюсь', c.text.map(t => `<p>${t}</p>`).join('') + `<span class="bar-code"></span><p class="lab" style="margin-top:12px">${c.time}</p><div class="acts">${btn('Канал @DinSells', SELL, 1)}${btn(c.btn, BIO)}${btn('Профиль @Din_Tag', TG)}</div>`, 'span');
   },
   gifts() {
     const c = D.gifts;
-    return card('t.me/DinPodarok', `${st('bear', 'bear')}<h1 style="font-size:clamp(46px,13vw,96px)">${c.title}</h1><p class="sub">${c.text}</p><div class="acts">${btn(c.btn, c.link, 1)}</div>`, 'span')
+    return card('t.me/DinSells', `${st('bear', 'bear')}<h1 style="font-size:clamp(52px,15vw,110px)">${c.title}</h1><p class="sub">${c.text}</p><div class="acts">${btn(c.btn, SELL, 1)}${btn(c.btn2, PROOF)}</div>`, 'span')
       + c.cards.map((d, i) => card('шаг ' + n2(i), `${st('g' + (i + 1))}<span class="idx">№ ${n2(i)}</span><h3>${d[0]}</h3><p>${d[1]}</p>`)).join('')
-      + card('призы', `<h3>Что в призах</h3><div class="srow">${[7, 8, 9, 10].map(n => st('g' + n)).join('')}</div>`, 'span');
+      + card('t.me/DinPodarok', `<h3>${c.proof[0]}</h3><p>${c.proof[1]}</p><div class="srow">${[7, 8, 9, 10].map(n => st('g' + n)).join('')}</div><div class="acts">${btn(c.btn2, PROOF, 1)}</div>`, 'span', '', 'доказательства');
   }
 };
 
 /* ---------- каркас и роутер ---------- */
 const app = document.getElementById('app');
-app.innerHTML = `<div id="bgc"></div><header class="bar"><a class="logo" ${A(H.home)} aria-label="Din — на главную"><i class="mk">D</i><b>Din</b></a><i class="sep"></i><span class="url">t.me/Din_Tag</span>
+app.innerHTML = `<div id="bgc"></div><header class="bar"><a class="logo" ${A(H.home)} aria-label="Din — на главную"><i class="mk">D</i><b>Din</b></a><i class="sep"></i><span class="url">t.me/DinSells</span>
 <button class="bg" aria-label="Меню" aria-expanded="false"><i></i><i></i></button><nav>${NAV.map(([k, l]) => `<a ${A(H[k])} data-k="${k}">${l}</a>`).join('')}</nav></header>
-<main id="m" class="w"></main><footer class="ft"><a href="https://t.me/Din_Tag" target="_blank" rel="noopener">@Din_Tag</a><a href="https://t.me/DinSells" target="_blank" rel="noopener">@DinSells</a><a href="https://t.me/DinsBio" target="_blank" rel="noopener">@DinsBio</a><a href="https://t.me/DinPodarok" target="_blank" rel="noopener">@DinPodarok</a></footer>`;
+<main id="m" class="w"></main><footer class="ft"><a href="https://t.me/DinSells" target="_blank" rel="noopener">Канал @DinSells</a><a href="https://t.me/Din_Tag" target="_blank" rel="noopener">Профиль @Din_Tag</a><a href="https://t.me/DinsBio" target="_blank" rel="noopener">Био @DinsBio</a><a href="https://t.me/DinPodarok" target="_blank" rel="noopener">Раздачи @DinPodarok</a></footer>`;
 const bar = app.querySelector('.bar'), burger = bar.querySelector('.bg'), M = document.getElementById('m');
 const setMenu = o => { bar.classList.toggle('open', o); burger.setAttribute('aria-expanded', o); };
 
